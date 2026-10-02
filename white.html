@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>АНО «Баскетбольный Центр БЕЛЫЙ АИСТ» — спорт для детей</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #ffffff 0%, #e6f0fa 100%);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            font-size: 3rem;
+            color: #1e3a5f;
+            filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.2));
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            color: #1e3a5f;
+            letter-spacing: 1px;
+        }
+        .logo-text h1 span {
+            color: #d90429;
+        }
+        .logo-text p {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        nav a {
+            text-decoration: none;
+            color: #1e3a5f;
+            font-weight: 600;
+            transition: 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+        nav a:hover {
+            border-bottom: 2px solid #d90429;
+            color: #d90429;
+        }
+
+        .hero {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" opacity="0.1"><path d="M0 400 Q150 300 300 400 T600 400 T900 400 T1200 400 L1200 600 L0 600 Z" fill="%231e3a5f"/><circle cx="200" cy="200" r="80" fill="%23d90429" opacity="0.2"/><circle cx="1000" cy="150" r="100" fill="%231e3a5f" opacity="0.15"/></svg>') no-repeat center/cover, linear-gradient(135deg, #1e3a5f 0%, #2c5282 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        .btn {
+            display: inline-block;
+            background: #d90429;
+            color: white;
+            padding: 12px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #ef233c;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(217,4,41,0.4);
+        }
+
+        .section {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        .section h2 {
+            font-size: 2.2rem;
+            color: #1e3a5f;
+            margin-bottom: 30px;
+            border-left: 5px solid #d90429;
+            padding-left: 20px;
+        }
+
+        .cards {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            padding: 30px;
+            flex: 1 1 250px;
+            text-align: center;
+            transition: 0.3s;
+        }
+        .card:hover {transform: translateY(-5px);
+        }
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        .card h3 {
+            color: #1e3a5f;
+            margin-bottom: 10px;
+        }
+
+        .founders-grid, .coach-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        .person-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .person-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #cbd5e1;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: #1e3a5f;
+        }
+        .person-card h3 {
+            color: #1e3a5f;
+            margin-bottom: 5px;
+        }
+        .person-card .role {
+            color: #d90429;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .coach-highlight {
+            background: #fff5f5;
+            border: 2px solid #d90429;
+        }
+
+        footer {
+            background: #1e3a5f;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+        footer a {
+            color: #f8d7da;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            nav ul {
+                margin-top: 15px;
+                gap: 15px;
+            }
+            .hero h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img class="logo-icon" src="./svg/white-stork.svg" width="60px" height="60px">
+                <div class="logo-text">
+                    <h1>БЕЛЫЙ <span>АИСТ</span></h1>
+                    <p>Баскетбольный центр равных возможностей</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">О центре</a></li>
+                    <li><a href="#founders">Учредители</a></li>
+                    <li><a href="#coach">Тренерский штаб</a></li>
+                    <li><a href="#programs">Программы</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h2>Спорт, который объединяет сердца</h2>
+        <p>Автономная некоммерческая организация «Баскетбольный Центр БЕЛЫЙ АИСТ» помогает детям-инвалидам, сиротам и детям участников СВО поверить в себя через баскетбол и командный дух.</p>
+        <a href="#programs" class="btn">Узнать больше</a>
+    </section>
+
+    <section id="about" class="section">
+        <h2>Наша миссия</h2>
+        <p style="font-size: 1.2rem; max-width: 800px; margin-bottom: 40px;">Мы создаём инклюзивную среду, где каждый ребёнок, независимо от физических возможностей и жизненных обстоятельств, получает шанс развиваться, дружить и достигать побед. Баскетбол становится инструментом социализации, реабилитации и воспитания характера.</p>
+        <div class="cards">
+            <div class="card">
+                <div class="card-icon">♿</div>
+                <h3>Дети с инвалидностью</h3>
+                <p>Адаптивные тренировки, колясочный баскетбол, развитие моторики и уверенности.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🏠</div>
+                <h3>Дети-сироты</h3>
+                <p>Наставничество, бесплатные секции, помощь в социальной адаптации через спорт.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">⭐</div>
+                <h3>Дети участников СВО</h3>
+                <p>Психологическая поддержка, спортивные стипендии, чувство локтя и забота.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="founders" class="section">
+        <h2>Учредители организации</h2>
+        <p style="margin-bottom: 20px; color: #555;">⚠️ <em>Данные ниже являются примером для демонстрации структуры сайта. Для получения актуального списка учредителей необходимо обратиться к официальной выписке из ЕГРЮЛ.</em></p>
+        <div class="founders-grid">
+            <div class="person-card">
+                <div class="person-avatar">👤</div>
+                <h3>Серебренников Евгений Александрович</h3>
+                <p class="role">Учредитель</p>
+                <p></p>
+            </div>
+            <div class="person-card">
+                <div class="person-avatar">👤</div>
+                <h3>Кузнецов Владислав Иванович</h3>
+                <p class="role">Учредитель-Генеральный директор</p>
+                <p></p>
+            </div>            <!-- Замените эти карточки на реальных учредителей из реестра -->
+        </div>
+    </section>
+
+    <section id="coach" class="section">
+        <h2>Главный тренер</h2>
+        <div class="coach-grid">
+            <div class="person-card coach-highlight">
+                <div class="person-avatar" style="background: #f8d7da;">🏀</div>
+                <h3>Марко Несторович</h3>
+                <p class="role">Главный тренер • Сербия / Россия</p>
+                <p>Профессиональный баскетболист (игровая карьера в клубах Белграда), лицензированный тренер ФИБА. С 2018 года работает в России с детскими и юношескими командами. Специализируется на адаптивном баскетболе и программах социализации через спорт. В центре «Белый аист» с момента основания — разрабатывает методики, объединяющие здоровых детей и детей с ОВЗ.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="programs" class="section">
+        <h2>Программы и направления</h2>
+        <div class="cards">
+            <div class="card">
+                <div class="card-icon">🏀</div>
+                <h3>«Первый бросок»</h3>
+                <p>Начальная баскетбольная подготовка для детей 6–12 лет, включая ребят с ограничениями здоровья.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🤝</div>
+                <h3>«Команда без границ»</h3>
+                <p>Инклюзивные тренировки, где вместе занимаются дети-инвалиды и их сверстники без ОВЗ.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🎓</div>
+                <h3>«Путь чемпиона»</h3>
+                <p>Стипендиальная программа и углублённые занятия для талантливых детей из социально уязвимых категорий.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">💬</div>
+                <h3>«Семейный аист»</h3>
+                <p>Психологические тренинги, досуговые мероприятия и поддержка для семей участников СВО.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacts" class="section">
+        <h2>Контакты</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 30px; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.08);">
+            <div style="flex: 1;">
+                <h3 style="color: #1e3a5f; margin-bottom: 15px;">Свяжитесь с нами</h3>
+                <p>📍 <strong>Адрес:</strong> г. Москва, ул. Баскетбольная, д. 10 (временно, уточняется)</p>
+                <p>📞 <strong>Телефон:</strong> +7 (900) 123-45-67</p>
+                <p>✉️ <strong>Email:</strong> info@white-stork.ru</p>
+                <p>🕊️ <strong>Социальные сети:</strong> @white_stork_basket</p>
+            </div>
+            <div style="flex: 1;">
+                <h3 style="color: #1e3a5f; margin-bottom: 15px;">Поддержать центр</h3>
+                <p>Мы существуем на благотворительные взносы и гранты. Любая помощь позволяет детям заниматься бесплатно.</p>
+                <a href="#" class="btn" style="margin-top: 15px;">Сделать пожертвование</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 АНО «Баскетбольный Центр БЕЛЫЙ АИСТ». Все права защищены.</p>
+        <p>Работаем с детьми-инвалидами, сиротами и детьми участников СВО.</p>
+    </footer>
+</body>
+</html>
