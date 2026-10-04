@@ -80,10 +80,22 @@
         }
 
         .hero {
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" opacity="0.1"><path d="M0 400 Q150 300 300 400 T600 400 T900 400 T1200 400 L1200 600 L0 600 Z" fill="%231e3a5f"/><circle cx="200" cy="200" r="80" fill="%23d90429" opacity="0.2"/><circle cx="1000" cy="150" r="100" fill="%231e3a5f" opacity="0.15"/></svg>') no-repeat center/cover, linear-gradient(135deg, #1e3a5f 0%, #2c5282 100%);
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" opacity="0.1"><path d="M0 400 Q150 300 300 400 T600 400 T900 400 T1200 400 L1200 600 L0 600 Z" fill="%231e3a5f"/><circle cx="200" cy="200" r="80" fill="%23d90429" opacity="0.2"/><circle cx="1000" cy="150" r="100" fill="%231e3a5f" opacity="0.15"/></svg>')
+             no-repeat center/cover, linear-gradient(    135deg, rgba(30, 58, 95, 0.6) 0%, rgba(44, 82, 130, 0.6) 100%);
             color: white;
             text-align: center;
             padding: 80px 20px;
+            position: relative;
+        }
+
+        .hero::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: "";
+            inset: 0; /* растягивает на весь блок .hero */
+            background: url("image/team.JPG") center / cover no-repeat;
+            z-index: -1;
         }
 
         .hero h2 {
@@ -178,6 +190,25 @@
             font-size: 2.5rem;
             color: #1e3a5f;
         }
+
+        .person-avatar-first {
+            background: url("image/evgeniy.JPG");
+            background-size: 100px;
+        }
+
+        .person-avatar-second {
+            background: url("image/vlad.PNG");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: 50%;
+        }
+
+        .person-avatar-three {
+            background: url("image/marko.JPG");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
         .person-card h3 {
             color: #1e3a5f;
             margin-bottom: 5px;
@@ -274,15 +305,15 @@
         <h2>Учредители организации</h2>
         <div class="founders-grid">
             <div class="person-card">
-                <div class="person-avatar">👤</div>
+                <div class="person-avatar person-avatar-first"></div>
                 <h3>Серебренников Евгений Александрович</h3>
                 <p class="role">Учредитель</p>
                 <p></p>
             </div>
             <div class="person-card">
-                <div class="person-avatar">👤</div>
+                <div class="person-avatar person-avatar-second"></div>
                 <h3>Кузнецов Владислав Иванович</h3>
-                <p class="role">Учредитель-Генеральный директор</p>
+                <p class="role">Учредитель </br>Генеральный директор</p>
                 <p></p>
             </div>            <!-- Замените эти карточки на реальных учредителей из реестра -->
         </div>
@@ -292,7 +323,7 @@
         <h2>Главный тренер</h2>
         <div class="coach-grid">
             <div class="person-card coach-highlight">
-                <div class="person-avatar" style="background: #f8d7da;">🏀</div>
+                <div class="person-avatar person-avatar-three"></div>
                 <h3>Марко Несторович</h3>
                 <p class="role">Главный тренер • Сербия / Россия</p>
                 <p>Профессиональный баскетболист (игровая карьера в клубах Белграда), лицензированный тренер ФИБА. С 2018 года работает в России с детскими и юношескими командами. Специализируется на адаптивном баскетболе и программах социализации через спорт. В центре «Белый аист» с момента основания — разрабатывает методики, объединяющие здоровых детей и детей с ОВЗ.</p>
