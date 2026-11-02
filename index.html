@@ -108,6 +108,11 @@
             max-width: 700px;
             margin: 0 auto 30px;
         }
+
+         p.hero__support {
+            font-size: 15px;
+        }
+
         .btn {
             display: inline-block;
             background: #d90429;
@@ -224,6 +229,11 @@
             border: 2px solid #d90429;
         }
 
+        .social_link {
+            color:black;
+            text-decoration: none;
+        }
+
         footer {
             background: #1e3a5f;
             color: white;
@@ -234,6 +244,71 @@
         footer a {
             color: #f8d7da;
             text-decoration: none;
+        }
+
+         #my-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
+
+            /* Внутренние отступы и внешний вид */
+            padding: 30px 40px;
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+            background: #fff;
+            text-align: center;
+            max-width: 90vw;
+            width: 320px; /* подберите под размер QR */
+        }
+
+        /* Затемнение фона, пока попап открыт */
+        #my-popup::backdrop {
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        /* Стили для кнопки закрытия внутри попапа */
+        #my-popup button {
+            margin-top: 20px;
+            cursor: pointer;
+            background: #d90429;
+            color: white;
+            padding: 12px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            border: none;
+        }
+
+        #my-popup button:hover {
+            background: #ef233c;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(217,4,41,0.4);
+        }
+
+        /* Место под QR-код */
+        #my-popup .qr-placeholder {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            border-radius: 8px;
+        }
+
+        .qr-image {
+            border-radius: 8px;
+        }
+
+        .player-wrapper {
+            display: flex;
+            justify-content: center;
         }
 
         @media (max-width: 768px) {
@@ -276,6 +351,7 @@
     <section class="hero">
         <h2>Спорт, который объединяет сердца</h2>
         <p>Автономная некоммерческая организация «Баскетбольный Центр БЕЛЫЙ АИСТ» помогает детям-инвалидам, сиротам и детям участников СВО поверить в себя через баскетбол и командный дух.</p>
+        <p class="hero__support">При поддержке Администрации Одинцовского городского округа Московской области.</p>
         <a href="#programs" class="btn">Узнать больше</a>
     </section>
 
@@ -361,22 +437,35 @@
         <h2>Контакты</h2>
         <div style="display: flex; flex-wrap: wrap; gap: 30px; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.08);">
             <div style="flex: 1;">
-                <h3 style="color: #1e3a5f; margin-bottom: 15px;">Свяжитесь с нами</h3>
-                <p>📍 <strong>Адрес:</strong> г. Москва, ул. Баскетбольная, д. 10 (временно, уточняется)</p>
-                <p>📞 <strong>Телефон:</strong> +7 (900) 123-45-67</p>
-                <p>✉️ <strong>Email:</strong> info@white-stork.ru</p>
-                <p>🕊️ <strong>Социальные сети:</strong> @white_stork_basket</p>
+                <h3 style="color: #1e3a5f; margin-bottom: 15px;">Сведения об организации</h3>
+                <p><strong>АНО "БЦ "Белый Аист"</strong></p>
+                <p><strong>ОГРН:</strong> 1267700127221</p>
+                <p><strong>ИНН:</strong> 7751387700</p>
+                <p><strong>КПП:</strong> 775101001</p>
+                <p><strong>Юр. адрес:</strong> 108818, город Москва, д. Десна, Широкая ул., д. 83</p>
+                <p><strong>Телефон:</strong> +7 (905) 683-26-13</p>
+                <p><strong>Email:</strong>white.stork.bc@mail.ru</p>
+                <p class="social"><strong>Социальные сети:</strong> <a href="https://vk.ru/whitestork21" class="social_link">Вконтакте</a></p>
             </div>
             <div style="flex: 1;">
                 <h3 style="color: #1e3a5f; margin-bottom: 15px;">Поддержать центр</h3>
                 <p>Мы существуем на благотворительные взносы и гранты. Любая помощь позволяет детям заниматься бесплатно.</p>
-                <a href="#" class="btn" style="margin-top: 15px;">Сделать пожертвование</a>
+                <button class="btn" style="margin-top: 15px;" popovertarget="my-popup">Сделать пожертвование</button>
+
+                <div id="my-popup" popover>
+                    <p>Отсканируйте QR-код, в банковском приложении</p>
+
+                    <!-- Сюда вставите картинку QR-кода -->
+                    <div class="qr-placeholder"><img src="/image/qr-pay.jpg" alt="qr-код для пожертовования" width="190" height="190" class="qr-image"></div>
+
+                    <button popovertarget="my-popup" popovertargetaction="hide">Закрыть</button>
+                </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>© 2025 АНО «Баскетбольный Центр БЕЛЫЙ АИСТ». Все права защищены.</p>
+        <p>© 2026 АНО «Баскетбольный Центр БЕЛЫЙ АИСТ». Все права защищены.</p>
         <p>Работаем с детьми-инвалидами, сиротами и детьми участников СВО.</p>
     </footer>
 </body>
